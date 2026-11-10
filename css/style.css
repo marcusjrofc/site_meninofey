@@ -331,39 +331,47 @@ header {
    RESPONSIVIDADE PARA TELEMÓVEIS E TABLETS
    ========================================= */
 @media (max-width: 768px) {
-    /* Cabeçalho */
+    /* Cabeçalho - Botão ao lado da Logo */
     .cabecalho {
-        flex-direction: column;
+        flex-direction: row; /* Mantém um ao lado do outro */
+        justify-content: space-between;
         height: auto;
-        padding: 20px 10px;
-        gap: 15px;
-        text-align: center;
+        padding: 20px;
+        align-items: center;
     }
 
     .links {
-        display: none; /* Oculta os links no telemóvel para não quebrar (poderá criar um menu hambúrguer depois) */
+        display: none; /* Oculta os links vazios */
     }
 
     .logo img {
         width: 100px; /* Reduz ligeiramente o logotipo */
     }
 
-    /* Banner Principal - Correção da sobreposição */
+    .butao {
+        padding: 10px 18px; /* Ajusta o tamanho do botão para caber bem */
+    }
+
+    .butao button {
+        font-size: 12px;
+    }
+
+    /* Banner Principal */
     .banner {
         display: flex;
         flex-direction: column;
         margin: 20px auto;
         box-shadow: 0px 4px 12px rgba(0, 119, 182, 0.1);
         border-radius: 8px;
-        background-color: #E0F7FA; /* Fundo suave para a área de texto */
+        background-color: #E0F7FA; 
     }
 
     .banner img {
-        border-radius: 8px 8px 0 0; /* Arredonda apenas o topo */
+        border-radius: 8px 8px 0 0; 
     }
 
     .banner-conteudo {
-        position: relative; /* Remove o absolute */
+        position: relative; 
         top: 0;
         left: 0;
         transform: none;
@@ -373,7 +381,7 @@ header {
     }
 
     .banner-conteudo h1 {
-        font-size: 26px; /* Reduz o título principal */
+        font-size: 26px; 
         margin-bottom: 12px;
     }
 
@@ -386,22 +394,38 @@ header {
         margin-bottom: 8px;
     }
 
-    /* Secção de Produtos e Vídeos */
+    /* Secção de Produtos e Vídeos - Efeito Carrossel (Swipe horizontal) */
     .titulo-produtos {
         font-size: 26px;
     }
 
     .container_info,
     .card_videos {
-        flex-direction: column; /* Empilha os cartões verticalmente */
-        gap: 25px;
-        align-items: center;
+        flex-direction: row; /* Mantém os cards lado a lado */
+        justify-content: flex-start; /* Começa do lado esquerdo */
+        overflow-x: auto; /* Permite rolagem horizontal */
+        scroll-snap-type: x mandatory; /* Efeito magnético de carrossel */
+        padding: 10px 20px 30px 20px; /* Espaçamento interno */
+        gap: 20px; /* Espaço entre os cards */
+        -webkit-overflow-scrolling: touch; /* Rolar suave no iPhone */
+    }
+
+    /* Oculta a barra de rolagem nativa para um visual mais limpo */
+    .container_info::-webkit-scrollbar,
+    .card_videos::-webkit-scrollbar {
+        display: none;
+    }
+    .container_info, .card_videos {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 
     .card, 
     .card_video {
-        width: 100%;
-        max-width: 320px; /* Impede que fiquem demasiado largos */
+        width: 280px; /* Reduz um pouco a largura para mostrar que tem mais ao lado */
+        max-width: none;
+        flex-shrink: 0; /* Impede que o card amasse */
+        scroll-snap-align: center; /* O card para sempre centralizado na tela */
     }
 
     /* Modal */
