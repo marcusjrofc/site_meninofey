@@ -2,7 +2,7 @@
 
 Este é o repositório do site **Menino Fey**, uma landing page dedicada a uma linha de cuidados capilares focada em definição natural, hidratação profunda e movimento para deixar os cachos sempre no ponto certo.
 
-🔗 **Acesse o site ao vivo:** [Site Menino Fey](https://marcusjrofc.github.io/site_meninofey/)
+🔗 **Acesse o site ao vivo:** [Site Menino Fey](https://sitemeninofey.vercel.app)
 
 ---
 
